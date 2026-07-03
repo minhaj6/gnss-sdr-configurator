@@ -1,0 +1,9 @@
+venv/
+upstream/
+DECISIONS.md
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+tests/
+conf/

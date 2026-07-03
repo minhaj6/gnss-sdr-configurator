@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gnss-sdr-configurator"
+version = "0.1.0"
+description = "Textual TUI for creating and editing GNSS-SDR .conf files"
+requires-python = ">=3.10"
+dependencies = [
+    "textual",
+    "textual-fspicker",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "tree-sitter", "tree-sitter-cpp"]
+
+[project.scripts]
+gnss-sdr-configurator = "gnss_sdr_configurator.tui.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gnss_sdr_configurator"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"schema/schema.json" = "gnss_sdr_configurator/schema.json"
