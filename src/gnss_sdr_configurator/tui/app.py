@@ -231,6 +231,12 @@ class ConfiguratorApp(App):
         # file replaces the whole config, so these never touch loaded files
         self.config.set("InputFilter.implementation", "Pass_Through")
         self.config.set("Resampler.implementation", "Pass_Through")
+        self.config.set(
+            "Acquisition_1C.implementation", "GPS_L1_CA_PCPS_Acquisition"
+        )
+        self.config.set(
+            "Tracking_1C.implementation", "GPS_L1_CA_DLL_PLL_Tracking"
+        )
         self._current_spec: RoleSpec | None = None
         # set while a file is loaded; save then rewrites the original
         # document (D2: comments/ordering preserved, edits applied in place)

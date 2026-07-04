@@ -731,9 +731,10 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    root = args.gnss_sdr_root.resolve()
+    root = args.gnss_sdr_root.resolve()  # absolute path for the gnss-sdr root
     if not (root / "src").is_dir():
-        sys.exit(f"error: {root} does not look like a GNSS-SDR source tree")
+        sys.exit(f"error: {root} doesn't have 'src' folder in the tree. " 
+                 "Are you sure the path is correct?")
 
     if args.generated_from:
         commit = args.generated_from
